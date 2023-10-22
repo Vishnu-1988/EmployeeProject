@@ -6,6 +6,7 @@ namespace EmployeeProject.Service.Interface
     {
         List<Users> GetUsers();
         List<Users> GetUsers(string Name);
+        void AddUsers(Users users);
         int GetCount();
     }
 }

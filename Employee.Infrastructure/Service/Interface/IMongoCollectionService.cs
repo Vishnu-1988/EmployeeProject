@@ -10,5 +10,6 @@ namespace Employee.Infrastructure.Service.Interface
     public interface IMongoCollectionService
     {
         IMongoCollection<T> GetCollection<T>(string databaseName,string collectionName);
+        //int AddDocument<T>(string collectionName, T document);
     }
 }
