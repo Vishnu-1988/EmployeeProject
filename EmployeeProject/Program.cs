@@ -16,7 +16,9 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("D
 BsonClassMapHelper.Register<UserMapping>();
 builder.Services.AddSharedModule();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
-builder.Services.AddMediatR(typeof(UnitOfWork).Assembly);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+//builder.Services.AddMediatR(typeof(UnitOfWork).Assembly);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

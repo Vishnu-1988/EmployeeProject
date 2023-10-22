@@ -8,10 +8,18 @@ namespace EmployeeProject.Service
     public class UnitOfWork : IUnitOfWork
     {
         public IMongoCollectionService _mongoservice;
+        
         public UnitOfWork(IMongoCollectionService mongoCollectionService) 
         { 
             _mongoservice = mongoCollectionService;
         }
+
+        public void AddUsers(Users users)
+        {
+            var result = _mongoservice.GetCollection<Users>("local", "Users");
+            result.InsertOne(users);
+        }
+
         public int GetCount()
         {
             throw new NotImplementedException();
@@ -19,7 +27,7 @@ namespace EmployeeProject.Service
 
         public List<Users> GetUsers()
         {
-            var result = _mongoservice.GetCollection<Users>("", "");
+            var result = _mongoservice.GetCollection<Users>("local", "Users");
             return result.Find<Users>(u => true).ToList();
                 //.FindAsync<List<Users>>();
                 //.FindAsync<List<Users>>();

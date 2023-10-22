@@ -15,6 +15,13 @@ namespace Employee.Infrastructure.Service
         {
             _client = mongoClient;
         }
+
+        //public int AddDocument<T>(string collectionName, T document)
+        //{
+        //    //_client.
+        //    throw new NotImplementedException();
+        //}
+
         public IMongoCollection<T> GetCollection<T>(string databaseName, string collectionName)
         {
             return _client.GetDatabase(databaseName).GetCollection<T>(collectionName);
