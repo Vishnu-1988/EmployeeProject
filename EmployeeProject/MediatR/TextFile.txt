@@ -6,3 +6,5 @@ Basically, a Mediator perform 2 operations.
 
 
 Ref url : https://www.c-sharpcorner.com/article/cqrs-pattern-using-mediatr-in-net-5/
+
+https://code-maze.com/cqrs-mediatr-in-aspnet-core/
